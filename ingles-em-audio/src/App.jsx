@@ -116,6 +116,7 @@ function Exercicio({ licao, aoConcluir, aoTocarAudio, aoFalharAudio }) {
   const [respostas, setRespostas] = useState([]);
   const [modoAudio, setModoAudio] = useState(false);
   const questao = licao.questoes[indice];
+  const idiomaOpcoes = licao.idiomaOpcoes ?? "en";
   const resposta = respostas[indice] || null;
   const possuiAudios = licao.id === "na-mesa" && licao.cartoes.every((cartao) => cartao.audio);
 
@@ -201,6 +202,7 @@ function Exercicio({ licao, aoConcluir, aoTocarAudio, aoFalharAudio }) {
             key={opcao.id}
             disabled={Boolean(resposta)}
             aria-pressed={resposta === opcao.id}
+            lang={modoAudio ? undefined : idiomaOpcoes}
             aria-label={modoAudio ? `Imagem de ${opcao.descricao}` : opcao.rotulo}
             onClick={() => responder(opcao.id)}
           >
@@ -209,7 +211,7 @@ function Exercicio({ licao, aoConcluir, aoTocarAudio, aoFalharAudio }) {
             ) : (
               <>
                 {opcao.imagem && <span className="opcao-emoji" role="img" aria-label={opcao.descricao}>{opcao.imagem}</span>}
-                <span lang="en">{opcao.rotulo}</span>
+                <span>{opcao.rotulo}</span>
               </>
             )}
           </button>
@@ -220,7 +222,7 @@ function Exercicio({ licao, aoConcluir, aoTocarAudio, aoFalharAudio }) {
         <p className={`feedback ${correta ? "feedback-correto" : "feedback-incorreto"}`} role="status" aria-live="polite">
           {correta
             ? "Correto! Muito bem."
-            : `Ainda não. A resposta correta é ${opcaoCorreta.rotulo}${opcaoCorreta.descricao ? ` (${opcaoCorreta.descricao})` : ""}.`}
+            : `Ainda não. A resposta correta é ${opcaoCorreta.rotulo}${idiomaOpcoes === "en" && opcaoCorreta.descricao ? ` (${opcaoCorreta.descricao})` : ""}.`}
         </p>
       )}
       {resposta && (
