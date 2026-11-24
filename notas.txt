@@ -1,0 +1,4 @@
+falta corrigir:
+-bug dos emojis na lição 1
+-adicionar midias
+-adicionar botão de reset nas lições

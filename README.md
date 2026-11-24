@@ -1,3 +1,0 @@
-O projeto consiste no desenvolvimento de um protótipo de software educacional para o ensino da língua inglesa utilizando recursos de audio digital e multimidia para tornar o aprendizado mais interativo  Vamos ter lições interativas por níveis do básico (incluindo vocabulario)  
-Teremos reprodução de audio com a pronúncia correta  Exercícios interativas para associar palavras imagens e sons  Acompanhamento do progresso visualizando o que foi concluído e o resultado dos exercícios d. Software e/ou ferramentas que serão usados no desenvolvimento: 
-Desenvolvimento- React  Musica- BandLab  Video- Capcut 
